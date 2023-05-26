@@ -38,3 +38,28 @@ def search(book: list[str], info: str) -> list[str] | str:
         return res[0]
     else:
         return "Совпадений не найдено"
+
+def change_data() -> None:
+    with open('book.txt', 'r', encoding='utf-8') as file:
+        data = file.read().split('\n')
+    print()
+    print('\n'.join(data))
+    print()
+    data_to_edit = input("Введите данные для поиска ---> ")
+    data_to_edit = search(data, data_to_edit)
+    print(data_to_edit)
+    print()
+    mode = input("Введите действие: 1 - удалить, 2 - заменить ---> ")
+    if mode == '1':
+        data.remove(data_to_edit)
+        print('\n'.join(data))
+    elif mode == '2':
+        data[data.index(data_to_edit)] = enter_change()
+        print('\n'.join(data))
+    with open('book.txt', 'w', encoding='utf-8') as file:
+        file.write('\n'.join(data))
+
+def enter_change() -> str:
+    fio = input("Введите ФИО: ")
+    number = input("Введите номер телефона: ")
+    return (f"{fio} | {number}")

@@ -10,14 +10,15 @@
 # 4. Использование функций. Ваша программа не должна быть линейной
 import functions
 
-
 while True:
-    mode = int(input('1. вывод, 2. добавление, 3. поиск ----> '))
+    mode = int(input('1:вывод   2:добавление   3:поиск   4:изменение ----> '))
     if mode == 1:
         functions.show_data()
     elif mode == 2:
         functions.add_data()
     elif mode == 3:
         functions.find_data()
+    elif mode == 4:
+        functions.change_data()
     else:
         break
